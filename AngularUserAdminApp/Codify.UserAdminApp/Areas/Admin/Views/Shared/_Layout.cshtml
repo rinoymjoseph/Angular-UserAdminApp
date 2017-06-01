@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" type="text/css" href="~/node_modules/primeng/resources/themes/omega/theme.css" />
+    <link rel="stylesheet" type="text/css" href="~/node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/node_modules/primeng/resources/primeng.min.css" />
+    <!-- Angular4 Code -->
+    <base href="/">
+    <!-- Polyfill(s) for older browsers -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
+    <script src="~/node_modules/core-js/client/shim.min.js"></script>
+    <script src="~/node_modules/zone.js/dist/zone.js"></script>
+    <script src="~/node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="~/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="~/systemjs.config.js"></script>
+    <script>
+        System.import('UserAdminApp/Areas/Admin/Angular/Shared/main.js').catch(function (err) { console.error(err); });
+    </script>
+    <!-- Angular4 Code -->
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                <a class="navbar-brand" href="UserAdminApp">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="navbar-left dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Role <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            @*<li> @Html.ActionLink("Add Role", "AddRole", "Role", new { area = "Admin" }, null) </li>*@
+                            <li><a href="UserAdminApp/Role/AddRole">Add Role</a></li>
+                            @*<li> @Html.ActionLink("List Roles", "ListRoles", "Role", new { area = "Admin" }, null) </li>*@
+                            <li><a href="UserAdminApp/Role/ListRoles">List Roles</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="navbar-left">
+                        <a href="UserAdminApp/EnergyDataEntry">Energy Data Entry</a>
+                    </li>
+
+                    <li class="navbar-left dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            @*<li> @Html.ActionLink("Add User", "AddUser", "User", new { area = "Admin" }, null) </li>*@
+                            <li><a href="UserAdminApp/User/AddUser">Add User</a></li>
+                            @*<li> @Html.ActionLink("List Users", "UserList", "User", new { area = "Admin" }, null)</li>*@
+                            <li><a href="UserAdminApp/User/ListUsers">List Users</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="navbar-right">@Html.ActionLink("Sign Out", "LogOut", "Login", new { area = "Admin" }, null)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-2">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

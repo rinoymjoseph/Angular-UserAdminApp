@@ -1,0 +1,21 @@
+﻿<p-tabPanel header="Header Text" [closable]="true">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <button pButton type="button" (click)="addRole(roleName)" label="Add Role"></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <p-dataTable [value]="roles" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20]"
+                     [globalFilter]="gb">
+            <p-column field="RoleId" header="Role Id"></p-column>
+            <p-column field="RoleName" header="Role Name"></p-column>
+            <p-column field="RoleDate" header="Sale Date" [editable]="true" [style]=" {'overflow':'visible' }">
+                <ng-template let-col let-role="rowData" pTemplate="editor">
+                    <p-calendar [(ngModel)]="role.RoleDate" timeOnly="true"></p-calendar>
+                </ng-template>
+            </p-column>
+        </p-dataTable>
+    </div>
+</p-tabPanel>

@@ -1,0 +1,32 @@
+﻿<div class="row">
+    <h3>Add User</h3>
+</div>
+<div class="well col-sm-12">
+    <div class="row">
+        <div class="col-sm-6 form-group">
+            <div class="form-group">
+                <label>User Name: </label>
+                <input [(ngModel)]="user.UserName" placeholder="user name" />
+            </div>
+            <div class="form-group">
+                <label>Password: </label>
+                <input [(ngModel)]="user.Password" placeholder="password" />
+            </div>
+            <div class="form-group">
+                <label>Full Name: </label>
+                <input [(ngModel)]="user.FullName" placeholder="full name" />
+            </div>
+            <div class="form-group">
+                <label>Phone No: </label>
+                <input [(ngModel)]="user.PhoneNo" placeholder="Phone No" />
+            </div>
+            <div class="form-group">
+                <button pButton type="button" (click)="addUser(user)" label="Add User"></button>
+            </div>
+        </div>
+        <div class="col-sm-6 form-group">
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,22 @@
+﻿<h2>Roles</h2>
+<ul class="roles">
+    <!-- each hero goes here -->
+    <!--<li *ngFor="let role of roles">
+        <span class="badge">{{role.RoleId}}</span> {{role.RoleName}}
+    </li>-->
+</ul>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-group">
+            <button pButton type="button" (click)="addRole(roleName)" label="Add Role"></button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <p-tabView>
+        <p-tabPanel *ngFor="let role of roles; let i = index;let first = first;" [selected]="first" [header]="role.RoleName" lazy = "true">
+            <role-tab></role-tab>
+        </p-tabPanel>
+    </p-tabView>
+</div>

@@ -1,0 +1,32 @@
+﻿<div class="row">
+    <h3>Add Role</h3>
+</div>
+<div class="well col-sm-12">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <label>Name: </label>
+                <input id="in" type="text" size="30" pInputText [(ngModel)]="roleName" placeholder="Enter Role Name" /> 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-group">
+                <button pButton type="button" (click)="addRole(roleName)" label="Add Role"></button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>{{message}}</label>
+                <h3 class="first">Basic: {{val}}</h3>
+                <p-slider [(ngModel)]="val" [style]="{'width':'200px'}"></p-slider>
+                <h3>Range: {{rangeValues}}</h3>
+                <p-slider [(ngModel)]="rangeValues" [style]="{'width':'200px'}" [range]="true"></p-slider>
+                <p-calendar [(ngModel)]="value" showTime="showTime" hourFormat="12"></p-calendar>
+            </div>
+        </div>
+    </div>
+</div>

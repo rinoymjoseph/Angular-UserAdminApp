@@ -1,0 +1,26 @@
+﻿<h3>Energy Data Entry</h3>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-group">
+            <label>Name: </label>
+            <input id="in" type="text" size="30" pInputText [(ngModel)]="batchName" placeholder="Enter Batch Name" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <div class="form-group">
+            <button pButton type="button" (click)="addBatch(batchName)" label="Add Batch"></button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <p-tabView>
+            <p-tabPanel *ngFor="let energyDEBatch of energyDEBatches; let i = index;let first = first;" [selected]="first" [header]="energyDEBatch.BatchName" lazy="true" [closable]="true">
+                <ede-batch-tab [edeBatch]="energyDEBatch"></ede-batch-tab>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>

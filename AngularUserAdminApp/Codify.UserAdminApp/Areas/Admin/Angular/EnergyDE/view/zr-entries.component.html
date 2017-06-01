@@ -1,0 +1,51 @@
+﻿<div class="row">
+    <p-panel header="ZR-180 Energies" [toggleable]="true" [collapsed]="true">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Mass: </label>
+                    <input id="in" type="text" size="30" pInputText [(ngModel)]="batchName" placeholder="Enter Mass" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p-dataTable [value]="zrEntries">
+                    <p-header><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button></div></p-header>
+                    <p-column field="TimeIn" header="Time In"></p-column>
+                    <p-column field="TimeOut" header="Time Out"></p-column>
+                    <p-column field="Power" header="Power"></p-column>
+                    <p-column field="InstantEnergy" header="Instant Energy"></p-column>
+                    <p-column field="AccmEnergy" header="Accm Energy"></p-column>
+                    <p-footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-save" style="float:right" label="Save"></button></div></p-footer>
+                </p-dataTable>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p-dialog header="Energy Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+                    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="kdEntry">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-4"><label for="vin">Ampere</label></div>
+                            <div class="ui-grid-col-8"><input pInputText id="vin" [(ngModel)]="kdEntry.Ampere" /></div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-4"><label for="year">Time In</label></div>
+                            <div class="ui-grid-col-8"><input pInputText id="year" [(ngModel)]="kdEntry.TimeIn" /></div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-4"><label for="brand">Time Out</label></div>
+                            <div class="ui-grid-col-8"><input pInputText id="brand" [(ngModel)]="kdEntry.TimeOut" /></div>
+                        </div>
+                    </div>
+                    <p-footer>
+                        <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+                            <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+                            <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+                        </div>
+                    </p-footer>
+                </p-dialog>
+            </div>
+        </div>
+    </p-panel>
+</div>
